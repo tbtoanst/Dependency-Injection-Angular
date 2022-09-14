@@ -6,10 +6,19 @@ import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
 import { TabGroupComponent } from './tabs/tab-group.component';
 import { TabPanelComponent } from './tabs/tab-panel.component';
+import { CounterComponent } from './counter/counter.component';
+import { TabBsGroupComponent } from './tabs/tab-bs-group.component';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule ],
-  declarations: [ AppComponent, HelloComponent, TabGroupComponent,TabPanelComponent ],
-  bootstrap:    [ AppComponent ]
+  imports: [BrowserModule, FormsModule],
+  declarations: [
+    AppComponent,
+    HelloComponent,
+    TabGroupComponent,
+    TabPanelComponent,
+    CounterComponent,
+    TabBsGroupComponent,
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
