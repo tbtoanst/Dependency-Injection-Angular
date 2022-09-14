@@ -14,7 +14,6 @@ import { TabPanelComponent } from './tab-panel.component';
   template: `
     <div>
       <div
-        @fade
         class="tab-headers"
         *ngFor="let tab of tabPanelList; let idx = index"
         (click)="activeIndexChange.emit(idx)"
@@ -24,7 +23,7 @@ import { TabPanelComponent } from './tab-panel.component';
       </div>
     </div>
 
-    <div class="tab-body" *ngIf="tabPanelList.length; else noTabs">
+    <div @fade class="tab-body" *ngIf="tabPanelList.length; else noTabs">
       <ng-container *ngTemplateOutlet="tabPanelList[activeIndex].panelBody"></ng-container>
     </div>
 
