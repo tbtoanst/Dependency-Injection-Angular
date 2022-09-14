@@ -1,4 +1,11 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  QueryList,
+  ContentChildren,
+} from '@angular/core';
 import { TabPanelComponent } from './tab-panel.component';
 
 @Component({
@@ -28,6 +35,11 @@ export class TabGroupComponent {
   tabPanelList: TabPanelComponent[] = [];
   @Input() activeIndex: number = 0;
   @Output() activeIndexChange = new EventEmitter<number>();
+  @ContentChildren(TabPanelComponent) tabPanels: QueryList<TabPanelComponent>;
+
+  ngAfterContentInit() {
+    console.log(this.tabPanels);
+  }
 
   addTab(tab: TabPanelComponent) {
     this.tabPanelList = [...this.tabPanelList, tab];
