@@ -1,9 +1,7 @@
 import {
   Component,
   ContentChild,
-  ContentChildren,
   Input,
-  QueryList,
   TemplateRef,
   ViewChild,
 } from '@angular/core';
