@@ -5,6 +5,7 @@ import {
   TemplateRef,
   ViewChild,
 } from '@angular/core';
+import { TabContentDirective } from './tab-content.directive';
 import { TabGroupComponent } from './tab-group.component';
 
 @Component({
@@ -18,8 +19,8 @@ import { TabGroupComponent } from './tab-group.component';
 export class TabPanelComponent {
   @Input() title: string;
   @ViewChild(TemplateRef, { static: true }) implicitBody: TemplateRef<unknown>;
-  @ContentChild(TemplateRef, { static: true })
-  explicitBody: TemplateRef<unknown>;
+  @ContentChild(TabContentDirective, { static: true })
+  explicitBody: TabContentDirective;
 
   constructor(private tabGroup: TabGroupComponent) {}
 
