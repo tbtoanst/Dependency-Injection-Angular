@@ -24,6 +24,10 @@ export class TabPanelComponent {
 
   constructor(private tabGroup: TabGroupComponent) {}
 
+  get panelBody(): TemplateRef<unknown>{
+    return this.implicitBody
+  }
+
   ngOnInit() {
     console.log(this.explicitBody);
     this.tabGroup.addTab(this);
