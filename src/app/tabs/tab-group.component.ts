@@ -47,21 +47,21 @@ import { TabPanelComponent } from './tab-panel.component';
     //   transition('void => *', [animate(2000)]),
     //   transition('* => void', [animate(2000)]),
     // ]),
-    // trigger('fade', [
-    //   state('void', style({opacity: 0})),
-    //   transition('void => *,* => void', [animate(2000)]),
-    // ]),
+    trigger('fade', [
+      state('void', style({ opacity: 0 })),
+      transition('void => *,* => void', [animate(2000)]),
+    ]),
     // trigger('fade', [
     //   state('void', style({opacity: 0})),
     //   transition('void <=> void', [animate(2000)]),
     // ]),
-    trigger('fade', [
-      state('void', style({ opacity: 0 })),
-      transition(
-        ':enter,:leave', // void <=> *
-        [animate(2000)]
-      ),
-    ]),
+    // trigger('fade', [
+    //   state('void', style({ opacity: 0 })),
+    //   transition(
+    //     ':enter,:leave', // void <=> *
+    //     [animate(2000)]
+    //   ),
+    // ]),
   ],
 })
 export class TabGroupComponent {
