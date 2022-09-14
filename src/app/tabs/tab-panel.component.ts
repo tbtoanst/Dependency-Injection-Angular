@@ -1,7 +1,9 @@
 import {
   Component,
   ContentChild,
+  ContentChildren,
   Input,
+  QueryList,
   TemplateRef,
   ViewChild,
 } from '@angular/core';
@@ -21,8 +23,13 @@ export class TabPanelComponent {
   @ViewChild(TemplateRef, { static: true }) implicitBody: TemplateRef<unknown>;
   @ContentChild(TabContentDirective, { static: true, read: TemplateRef })
   explicitBody: TemplateRef<unknown>;
+  @ContentChildren(TabPanelComponent) tabPanels: QueryList<TabPanelComponent>;
 
   constructor(private tabGroup: TabGroupComponent) {}
+
+  ngAfterContentInit() {
+    console.log(this.tabPanels);
+  }
 
   get panelBody(): TemplateRef<unknown> {
     return this.explicitBody || this.implicitBody;
@@ -31,5 +38,9 @@ export class TabPanelComponent {
   ngOnInit() {
     console.log(this.explicitBody);
     this.tabGroup.addTab(this);
+  }
+
+  ngOnDestroy() {
+    this.tabGroup.removeTab(this);
   }
 }
