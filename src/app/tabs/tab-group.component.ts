@@ -1,4 +1,10 @@
-import { animate, style, transition, trigger } from '@angular/animations';
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
 import {
   Component,
   Input,
@@ -32,9 +38,29 @@ import { TabPanelComponent } from './tab-panel.component';
     </ng-template>
   `,
   animations: [
+    // trigger('fade', [
+    //   transition('void => *', [style({ opacity: 0 }), animate(2000)]),
+    //   transition('* => void', [animate(2000, style({ opacity: 0 }))]),
+    // ]),
+    // trigger('fade', [
+    //   state('void', style({opacity: 0})),
+    //   transition('void => *', [animate(2000)]),
+    //   transition('* => void', [animate(2000)]),
+    // ]),
+    // trigger('fade', [
+    //   state('void', style({opacity: 0})),
+    //   transition('void => *,* => void', [animate(2000)]),
+    // ]),
+    // trigger('fade', [
+    //   state('void', style({opacity: 0})),
+    //   transition('void <=> void', [animate(2000)]),
+    // ]),
     trigger('fade', [
-      transition('void => *', [style({ opacity: 0 }), animate(2000)]),
-      transition('* => void', [animate(2000, style({ opacity: 0 }))]),
+      state('void', style({ opacity: 0 })),
+      transition(
+        ':enter,:leave', // void <=> *
+        [animate(2000)]
+      ),
     ]),
   ],
 })
