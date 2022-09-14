@@ -12,14 +12,14 @@ import { TabPanelComponent } from './tab-panel.component';
 @Component({
   selector: 'tab-group',
   template: `
-    <div>
+    <div @fade>
       <div
         class="tab-headers"
         *ngFor="let tab of tabPanelList; let idx = index"
         (click)="activeIndexChange.emit(idx)"
       >
         {{tab.title}}
-        <button (click)="removeTab(tab)" @fade>x</button>
+        <button (click)="removeTab(tab)">x</button>
       </div>
     </div>
 

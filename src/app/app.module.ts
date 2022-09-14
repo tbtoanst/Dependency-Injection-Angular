@@ -9,9 +9,10 @@ import { TabPanelComponent } from './tabs/tab-panel.component';
 import { CounterComponent } from './counter/counter.component';
 import { TabBsGroupComponent } from './tabs/tab-bs-group.component';
 import { TabContentDirective } from './tabs/tab-content.directive';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
-  imports: [BrowserModule, FormsModule],
+  imports: [BrowserModule, FormsModule, BrowserAnimationsModule],
   declarations: [
     AppComponent,
     HelloComponent,
