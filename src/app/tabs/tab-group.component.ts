@@ -1,3 +1,4 @@
+import { animate, style, transition, trigger } from '@angular/animations';
 import {
   Component,
   Input,
@@ -13,6 +14,7 @@ import { TabPanelComponent } from './tab-panel.component';
   template: `
     <div>
       <div
+        @Fade
         class="tab-headers"
         *ngFor="let tab of tabPanelList; let idx = index"
         (click)="activeIndexChange.emit(idx)"
@@ -30,6 +32,17 @@ import { TabPanelComponent } from './tab-panel.component';
       No more tabs
     </ng-template>
   `,
+  animations: [
+    trigger('fade', [
+      transition('void => *', [
+        style({opacity: 0}),
+        animate(2000)
+      ]),
+      transition('* => void', [
+        animate(2000, style({opacity: 0}))
+      ])
+    ])
+  ]
 })
 export class TabGroupComponent {
   tabPanelList: TabPanelComponent[] = [];
@@ -39,6 +52,7 @@ export class TabGroupComponent {
 
   ngAfterContentInit() {
     console.log(this.tabPanels);
+    this.tabPanels.changes.subscribe(console.log);
   }
 
   addTab(tab: TabPanelComponent) {
