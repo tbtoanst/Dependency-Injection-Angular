@@ -7,7 +7,7 @@
   <tab-panel title="Third tab">Third tab content</tab-panel>
   <tab-panel title="Fourth tab">Fourth tab content</tab-panel>
 </tab-group> -->
-
+<button class="btn tbn-primary" (click)="showTab4 = !showTab4"></button>
 <tab-bs-group [(activeIndex)]="currentIndex">
   <tab-panel title="First tab">
     <ng-template tabContent>
@@ -27,7 +27,7 @@
       <counter></counter>
     </ng-template>
   </tab-panel>
-  <tab-panel title="Fourth tab">
+  <tab-panel title="Fourth tab" *ngIf="showTab4">
     <ng-template tabContent>
       Fourth tab content
       <counter></counter>

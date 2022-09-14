@@ -8,4 +8,5 @@ import { Component, VERSION } from '@angular/core';
 export class AppComponent {
   name = 'Angular ' + VERSION.major;
   currentIndex = 0;
+  showTab4 = true;
 }
