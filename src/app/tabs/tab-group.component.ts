@@ -12,8 +12,9 @@ import { TabPanelComponent } from './tab-panel.component';
 @Component({
   selector: 'tab-group',
   template: `
-    <div @fade>
+    <div>
       <div
+        @fade
         class="tab-headers"
         *ngFor="let tab of tabPanelList; let idx = index"
         (click)="activeIndexChange.emit(idx)"
